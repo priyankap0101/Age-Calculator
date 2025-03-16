@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Calculator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+        }
+
+        .container {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 320px;
+        }
+
+        h2 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        input {
+            padding: 10px;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            outline: none;
+            margin-bottom: 15px;
+        }
+
+        button {
+            width: 100%;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 12px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .result {
+            margin-top: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Age Calculator</h2>
+        <input type="date" id="birthdate">
+        <div class="error" id="errorMsg"></div>
+        <button onclick="calculateAge()">Calculate Age</button>
+        <div class="result" id="ageResult"></div>
+    </div>
+
+    <script>
+        function calculateAge() {
+            let birthdateInput = document.getElementById("birthdate").value;
+            let errorMsg = document.getElementById("errorMsg");
+            let resultDiv = document.getElementById("ageResult");
+
+            if (!birthdateInput) {
+                errorMsg.innerHTML = "⚠️ Please select a valid birthdate.";
+                resultDiv.innerHTML = "";
+                return;
+            }
+
+            let birthDate = new Date(birthdateInput);
+            let today = new Date();
+
+            if (birthDate > today) {
+                errorMsg.innerHTML = "⚠️ Birthdate cannot be in the future!";
+                resultDiv.innerHTML = "";
+                return;
+            }
+
+            errorMsg.innerHTML = "";
+
+            let years = today.getFullYear() - birthDate.getFullYear();
+            let months = today.getMonth() - birthDate.getMonth();
+            let days = today.getDate() - birthDate.getDate();
+
+            if (days < 0) {
+                months--;
+                let prevMonth = new Date(today.getFullYear(), today.getMonth(), 0);
+                days += prevMonth.getDate();
+            }
+
+            if (months < 0) {
+                years--;
+                months += 12;
+            }
+
+            resultDiv.innerHTML = `🎉 You are <strong>${years}</strong> years, <strong>${months}</strong> months, and <strong>${days}</strong> days old.`;
+        }
+
+        // Auto-calculate age when selecting a date
+        document.getElementById("birthdate").addEventListener("change", calculateAge);
+    </script>
+
+</body>
+</html>
