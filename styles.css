@@ -1,102 +1,238 @@
+/* Improved UI with Better Transitions and Layout */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
+
 body {
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  color: #fff;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  transition: 0.3s;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    transition: background 0.3s ease-in-out;
 }
 
+/* Dark Mode */
+body.dark-mode {
+    background: linear-gradient(135deg, #1e1e1e, #3a3a3a);
+    color: #ddd;
+}
+
+/* Container */
 .container {
-  max-width: 500px;
-  width: 100%;
-  text-align: center;
-}
-.page {
-  display: none;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(10px);
-  opacity: 0;
-  transform: scale(0.95);
-  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-}
-.page.active {
-  display: block;
-  opacity: 1;
-  transform: scale(1);
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
 }
 
-h2 {
-  font-size: 22px;
-  margin-bottom: 15px;
+/* Pages */
+.page {
+    display: none;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(12px);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
 }
+
+.page.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Headings */
+h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+/* Inputs & Buttons */
 input,
 button {
-  width: 100%;
-  padding: 12px;
-  border: none;
-  border-radius: 6px;
-  font-size: 16px;
-  margin-bottom: 15px;
-  text-align: center;
-  outline: none;
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    margin-bottom: 18px;
+    text-align: center;
+    outline: none;
 }
+
 input {
-  background: rgba(255, 255, 255, 0.2);
-  color: white;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    transition: background 0.3s ease-in-out;
 }
+
+input:focus {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Buttons */
 button {
-  background: #ff5c93;
-  color: white;
-  cursor: pointer;
-  transition: 0.3s;
+    background: linear-gradient(135deg, #ff5c93, #ff2d75);
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
 }
+
 button:hover {
-  background: #ff1e6d;
-  transform: scale(1.05);
+    background: linear-gradient(135deg, #ff1e6d, #ff004d);
+    transform: scale(1.07);
+    box-shadow: 0 4px 15px rgba(255, 30, 109, 0.4);
+}
+
+/* Navigation Buttons */
+.nav-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.nav-buttons button {
+    width: 48%;
+}
+
+/* Progress Bar */
+.progress {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.step {
+    width: 18px;
+    height: 18px;
+    background: #bbb;
+    border-radius: 50%;
+    margin: 0 6px;
+    transition: all 0.3s;
+}
+
+.step.active {
+    background: #ff5c93;
+    transform: scale(1.4);
+    box-shadow: 0 0 10px rgba(255, 92, 147, 0.6);
+}
+
+/* Tooltip for Fun Facts */
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    font-weight: bold;
+    color: #ffd700;
+}
+
+.tooltip .tooltip-text {
+    visibility: hidden;
+    width: 160px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    text-align: center;
+    padding: 6px;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+    bottom: 130%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Dark Mode Toggle */
+.toggle-mode {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: white;
+    transition: color 0.3s;
+}
+
+.toggle-mode:hover {
+    color: #ffd700;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 15px;
+    color: #ddd;
+    font-weight: 300;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .container {
+        max-width: 90%;
+    }
+    
+    .page {
+        padding: 20px;
+    }
+    
+    h2 {
+        font-size: 20px;
+    }
+    
+    button {
+        font-size: 16px;
+        padding: 12px;
+    }
+    
+    .nav-buttons button {
+        width: 48%;
+    }
+}
+#ageInTimeUnits ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px auto;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 equal columns */
+    gap: 6px; /* Increased spacing for clarity */
+    max-width: 400px; /* Slightly increased for better distribution */
+}
+
+#ageInTimeUnits ul li {
+    font-size: 10px; /* Reduced for compactness */
+    font-weight: 500;
+    text-align: center;
+    color: #fff;
+    padding: 8px 10px; /* Reduced padding */
+    background: rgba(255, 255, 255, 0.12); /* Subtle background */
+    border-radius: 6px;
+    min-width: 70px;
+}
+
+/* Space adjustments for the surrounding elements */
+#ageInTimeUnits {
+    margin-top: 12px; /* Less spacing above */
 }
 
 .nav-buttons {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 15px;
-}
-.nav-buttons button {
-  width: 48%;
-}
-
-.progress {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 15px;
-}
-.step {
-  width: 15px;
-  height: 15px;
-  background: #bbb;
-  border-radius: 50%;
-  margin: 0 5px;
-  transition: 0.3s;
-}
-.step.active {
-  background: #ff5c93;
-  transform: scale(1.3);
-}
-
-.footer {
-  text-align: center;
-  margin-top: 20px;
-  font-size: 14px;
-  color: #ddd;
+    margin-top: 18px; /* Slightly reduced spacing */
 }

@@ -19,6 +19,8 @@
         <div class="step"></div>
         <div class="step"></div>
         <div class="step"></div>
+        <div class="step"></div>
+        <div class="step"></div>
       </div>
 
       <!-- Page 1: Input -->
@@ -32,6 +34,7 @@
       <div id="agePage" class="page">
         <h2>🎉 Your Age</h2>
         <p id="ageResult"></p>
+        <p id="bornDay"></p>
         <div class="nav-buttons">
           <button onclick="goBack('inputPage')">Back</button>
           <button onclick="goToPage('birthdayPage')">Next</button>
@@ -52,18 +55,39 @@
       <div id="zodiacPage" class="page">
         <h2>🔮 Zodiac Sign</h2>
         <p id="zodiac"></p>
+        <p id="chineseZodiac"></p>
         <div class="nav-buttons">
           <button onclick="goBack('birthdayPage')">Back</button>
+          <button onclick="goToPage('timeUnitsPage')">Next</button>
+        </div>
+      </div>
+
+      <!-- Page 5: Age in Time Units -->
+      <div id="timeUnitsPage" class="page">
+        <h2>⏳ Your Age in Time</h2>
+        <p id="ageInTimeUnits"></p>
+        <div class="nav-buttons">
+          <button onclick="goBack('zodiacPage')">Back</button>
+          <button onclick="goToPage('lifeExpectancyPage')">Next</button>
+        </div>
+      </div>
+
+      <!-- Page 6: Life Expectancy -->
+      <div id="lifeExpectancyPage" class="page">
+        <h2>🎯 Life Expectancy</h2>
+        <p id="lifeExpectancy"></p>
+        <div class="nav-buttons">
+          <button onclick="goBack('timeUnitsPage')">Back</button>
           <button onclick="goToPage('funFactPage')">Next</button>
         </div>
       </div>
 
-      <!-- Page 5: Fun Fact -->
+      <!-- Page 7: Fun Fact -->
       <div id="funFactPage" class="page">
         <h2>💡 Fun Fact</h2>
         <p id="funFact"></p>
         <div class="nav-buttons">
-          <button onclick="goBack('zodiacPage')">Back</button>
+          <button onclick="goBack('lifeExpectancyPage')">Back</button>
           <button onclick="goToPage('inputPage')">Restart</button>
         </div>
       </div>
