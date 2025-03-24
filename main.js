@@ -13,6 +13,10 @@ function calculateAge() {
 
     const birthDate = new Date(birthdateInput);
     const today = new Date();
+    
+    // Remove time components for accurate date comparison
+    birthDate.setHours(0, 0, 0, 0);
+    today.setHours(0, 0, 0, 0);
 
     // 🛑 Prevent future birthdates
     if (birthDate > today) {
@@ -48,17 +52,27 @@ function calculateAge() {
         nextBirthday.setFullYear(today.getFullYear() + 1);
     }
     const countdownDays = Math.ceil((nextBirthday - today) / (1000 * 60 * 60 * 24));
-    document.getElementById("countdown").innerHTML = `Your next birthday is in <strong>${countdownDays}</strong> days!`;
 
-    // 🏮 Chinese Zodiac Calculation
+    if (countdownDays === 0) {
+        document.getElementById("countdown").innerHTML = "🎉 Happy Birthday! 🎂";
+    } else {
+        document.getElementById("countdown").innerHTML = `Your next birthday is in <strong>${countdownDays}</strong> days!`;
+    }
+
+    // 🏮 Chinese Zodiac Calculation (Fix negative index issue)
     const chineseZodiacs = ["Rat", "Ox", "Tiger", "Rabbit", "Dragon", "Snake", "Horse", "Goat", "Monkey", "Rooster", "Dog", "Pig"];
-    const chineseZodiacSign = chineseZodiacs[(birthDate.getFullYear() - 4) % 12];
+    const chineseZodiacSign = chineseZodiacs[(birthDate.getFullYear() - 4 + 1200) % 12];
     document.getElementById("chineseZodiac").innerHTML = `Your Chinese zodiac sign is <strong>${chineseZodiacSign}</strong>.`;
 
-    // 🔥 Western Zodiac Calculation
+    // 🔥 Western Zodiac Calculation (Fix December overflow issue)
     const zodiacSigns = ["Capricorn", "Aquarius", "Pisces", "Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio", "Sagittarius"];
     const zodiacDates = [19, 18, 20, 19, 20, 20, 22, 22, 22, 22, 21, 21];
-    const sign = (birthDate.getDate() > zodiacDates[birthDate.getMonth()]) ? zodiacSigns[birthDate.getMonth() + 1] : zodiacSigns[birthDate.getMonth()];
+    
+    const signIndex = (birthDate.getDate() > zodiacDates[birthDate.getMonth()]) 
+        ? (birthDate.getMonth() + 1) % 12 
+        : birthDate.getMonth();
+    
+    const sign = zodiacSigns[signIndex];
     document.getElementById("zodiac").innerHTML = `Your zodiac sign is <strong>${sign}</strong>.`;
 
     // ⏳ Age in Weeks, Days, Hours, Minutes, Seconds
@@ -81,15 +95,25 @@ function calculateAge() {
     goToPage('agePage'); // Move to the first result page
 }
 
-// 🧭 Navigation Functions
+// 🧭 Navigation Functions (Fix: Check if page exists)
 function goToPage(pageId) {
+    if (!document.getElementById(pageId)) {
+        console.error("Invalid page ID:", pageId);
+        return;
+    }
+    
     document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
     document.getElementById(pageId).classList.add('active');
 
-    const index = ["inputPage", "agePage", "birthdayPage", "zodiacPage"].indexOf(pageId);
-    document.querySelectorAll('.step').forEach((step, i) => step.classList.toggle('active', i <= index));
+    const pages = ["inputPage", "agePage", "birthdayPage", "zodiacPage"];
+    const index = pages.indexOf(pageId);
+    
+    if (index !== -1) {
+        document.querySelectorAll('.step').forEach((step, i) => step.classList.toggle('active', i <= index));
+    }
 }
 
+// 🔙 Go Back Function
 function goBack(pageId) {
     goToPage(pageId);
 }
