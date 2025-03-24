@@ -1,8 +1,14 @@
 function calculateAge() {
     let birthdateInput = document.getElementById("birthdate").value;
+    let messageContainer = document.getElementById("error-message");
+
+    // If no birthdate is entered, display a message instead of an alert
     if (!birthdateInput) {
-        alert("⚠️ Please enter your birthdate!");
+        messageContainer.innerHTML = "⚠️ Please enter your birthdate!";
+        messageContainer.style.display = "block";
         return;
+    } else {
+        messageContainer.style.display = "none"; // Hide error if birthdate is entered
     }
 
     let birthDate = new Date(birthdateInput);
@@ -65,32 +71,19 @@ function calculateAge() {
             <li><strong>${ageInSeconds}</strong> seconds</li>
         </ul>`;
 
-    // 🎯 Life Expectancy Estimation
-    let averageLifeExpectancy = 72; // Global average
-    let remainingYears = averageLifeExpectancy - years;
-    let remainingDays = remainingYears * 365;
-    document.getElementById("lifeExpectancy").innerHTML = remainingYears > 0 
-        ? `On average, you have <strong>${remainingYears}</strong> years left to live! (Based on a global average of 72 years).` 
-        : `You've surpassed the average life expectancy! 🎉 Keep enjoying life!`;
+   
 
-    // 🤯 Fun Facts
-    let funFacts = [
-        "You've witnessed thousands of sunrises!",
-        "Your heart has beaten millions of times!",
-        "You've taken millions of breaths so far!",
-        "Your eyes have blinked over a hundred million times!",
-        "You share a birthday with approximately 9 million people worldwide!"
-    ];
-    document.getElementById("funFact").innerHTML = `Fun Fact: <strong>${funFacts[Math.floor(Math.random() * funFacts.length)]}</strong>`;
+  
 
     goToPage('agePage'); // Move to the first result page
 }
 
+// Navigation Functions
 function goToPage(pageId) {
     document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
     document.getElementById(pageId).classList.add('active');
 
-    let index = ["inputPage", "agePage", "birthdayPage", "zodiacPage", "funFactPage"].indexOf(pageId);
+    let index = ["inputPage", "agePage", "birthdayPage", "zodiacPage"].indexOf(pageId);
     document.querySelectorAll('.step').forEach((step, i) => step.classList.toggle('active', i <= index));
 }
 

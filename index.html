@@ -18,15 +18,15 @@
         <div class="step"></div>
         <div class="step"></div>
         <div class="step"></div>
-        <div class="step"></div>
-        <div class="step"></div>
-        <div class="step"></div>
+        
+        
       </div>
 
       <!-- Page 1: Input -->
       <div id="inputPage" class="page active">
         <h2>Enter Your Birthdate</h2>
         <input type="date" id="birthdate" />
+        <p id="error-message" class="error-message"></p>
         <button onclick="calculateAge()">Calculate Age</button>
       </div>
 
@@ -72,29 +72,12 @@
         </div>
       </div>
 
-      <!-- Page 6: Life Expectancy -->
-      <div id="lifeExpectancyPage" class="page">
-        <h2>🎯 Life Expectancy</h2>
-        <p id="lifeExpectancy"></p>
-        <div class="nav-buttons">
-          <button onclick="goBack('timeUnitsPage')">Back</button>
-          <button onclick="goToPage('funFactPage')">Next</button>
-        </div>
-      </div>
-
-      <!-- Page 7: Fun Fact -->
-      <div id="funFactPage" class="page">
-        <h2>💡 Fun Fact</h2>
-        <p id="funFact"></p>
-        <div class="nav-buttons">
-          <button onclick="goBack('lifeExpectancyPage')">Back</button>
-          <button onclick="goToPage('inputPage')">Restart</button>
-        </div>
-      </div>
 
       <p class="footer">Created with ❤️ for YouTube</p>
     </div>
 
-    <script src="./main.js"></script>
+    <script src="./main.js">
+    
+    </script>
   </body>
 </html>
