@@ -97,21 +97,25 @@ function calculateAge() {
 
 // 🧭 Navigation Functions (Fix: Check if page exists)
 function goToPage(pageId) {
-    if (!document.getElementById(pageId)) {
+    const pages = ["inputPage", "agePage", "birthdayPage", "zodiacPage"];
+    let index = pages.indexOf(pageId);
+
+    if (index === -1) {
         console.error("Invalid page ID:", pageId);
         return;
     }
-    
-    document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
-    document.getElementById(pageId).classList.add('active');
 
-    const pages = ["inputPage", "agePage", "birthdayPage", "zodiacPage"];
-    const index = pages.indexOf(pageId);
-    
-    if (index !== -1) {
-        document.querySelectorAll('.step').forEach((step, i) => step.classList.toggle('active', i <= index));
+    // 🌟 Loop back to first page after last page
+    if (index === pages.length - 1) {
+        index = 0;
     }
+
+    document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+    document.getElementById(pages[index]).classList.add('active');
+
+    document.querySelectorAll('.step').forEach((step, i) => step.classList.toggle('active', i <= index));
 }
+
 
 // 🔙 Go Back Function
 function goBack(pageId) {
