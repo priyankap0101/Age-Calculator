@@ -70,13 +70,32 @@ function calculateBirthdayCountdown() {
     goToPage("birthdayPage"); // ✅ Move to countdown page
 }
 
-// 🧭 Page Navigation
+// 🧭 Page Navigation with Back Support
+let pageHistory = []; // Store page navigation history
+
 function goToPage(pageId) {
-    document.querySelectorAll(".page").forEach((page) => page.classList.remove("active"));
+    const pages = ["inputPage", "agePage", "birthdayPage"];
+    
+    // Store current page before switching (except when going back)
+    if (pageHistory.length === 0 || pageHistory[pageHistory.length - 1] !== pageId) {
+        pageHistory.push(pageId);
+    }
+
+    // Show the selected page and hide others
+    pages.forEach((page) => document.getElementById(page).classList.remove("active"));
     document.getElementById(pageId).classList.add("active");
 
-    // If going to birthday page, calculate countdown
+    // If moving to the birthday page, calculate countdown
     if (pageId === "birthdayPage") {
         calculateBirthdayCountdown();
+    }
+}
+
+// ⬅️ Go Back Function
+function goBack() {
+    if (pageHistory.length > 1) {
+        pageHistory.pop(); // Remove current page
+        const previousPage = pageHistory[pageHistory.length - 1]; // Get the last visited page
+        goToPage(previousPage);
     }
 }
