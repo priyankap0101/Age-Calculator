@@ -2,76 +2,78 @@
 function calculateAge() {
     const birthdateInput = document.getElementById("birthdate").value;
     const messageContainer = document.getElementById("error-message");
+    const resultContainer = document.getElementById("ageResult");
 
-    // 🛑 Handle missing input
+    // 🛑 Validate input
     if (!birthdateInput) {
         messageContainer.innerHTML = "⚠️ Please enter your birthdate!";
+        resultContainer.innerHTML = "";
         return;
-    } else {
-        messageContainer.innerHTML = "";
     }
 
     const birthDate = new Date(birthdateInput);
     const today = new Date();
 
-    // Prevent future dates
+    // 🚫 Prevent future dates
     if (birthDate > today) {
         messageContainer.innerHTML = "⚠️ Birthdate cannot be in the future!";
+        resultContainer.innerHTML = "";
         return;
     }
+
+    messageContainer.innerHTML = ""; // ✅ Clear previous errors
 
     let years = today.getFullYear() - birthDate.getFullYear();
     let months = today.getMonth() - birthDate.getMonth();
 
+    if (today.getDate() < birthDate.getDate()) {
+        months--;
+    }
     if (months < 0) {
         years--;
         months += 12;
     }
 
-    document.getElementById("ageResult").innerHTML =
-        `You are <strong>${years}</strong> years and <strong>${months}</strong> months old.`;
-
-    goToPage("agePage"); // ✅ Move to age display
+    resultContainer.innerHTML = `🎉 You are <strong>${years}</strong> years and <strong>${months}</strong> months old.`;
+    goToPage("agePage");
 }
 
-// 🎈 Birthday Message (Only Checks If It's Today)
+// 🎈 Check if Today is the User's Birthday
 function checkBirthdayToday() {
     const birthdateInput = document.getElementById("birthdate").value;
+    const messageContainer = document.getElementById("countdown");
 
+    // 🛑 Validate input
     if (!birthdateInput) {
-        document.getElementById("countdown").innerHTML = "⚠️ Please enter your birthdate first!";
+        messageContainer.innerHTML = "⚠️ Please enter your birthdate first!";
         return;
     }
 
     const birthDate = new Date(birthdateInput);
     const today = new Date();
 
-    // 🎂 If today is the birthday
     if (today.getDate() === birthDate.getDate() && today.getMonth() === birthDate.getMonth()) {
-        document.getElementById("countdown").innerHTML = "🎉 Today is your birthday! Have a great day! 🎂🥳";
+        messageContainer.innerHTML = "🎉 Today is your birthday! Have a fantastic day! 🎂🥳";
     } else {
-        document.getElementById("countdown").innerHTML = "🎈 Your birthday is not today.";
+        messageContainer.innerHTML = "🎈 Your birthday is not today.";
     }
 
     goToPage("birthdayPage");
 }
 
 // 🧭 Page Navigation with Back Support
-let pageHistory = []; // Store page navigation history
+let pageHistory = [];
 
 function goToPage(pageId) {
     const pages = ["inputPage", "agePage", "birthdayPage"];
-    
-    // Store current page before switching (except when going back)
-    if (pageHistory.length === 0 || pageHistory[pageHistory.length - 1] !== pageId) {
+
+    if (!pageHistory.length || pageHistory[pageHistory.length - 1] !== pageId) {
         pageHistory.push(pageId);
     }
 
-    // Show the selected page and hide others
-    pages.forEach((page) => document.getElementById(page).classList.remove("active"));
+    pages.forEach(page => document.getElementById(page).classList.remove("active"));
     document.getElementById(pageId).classList.add("active");
 
-    // If moving to the birthday page, check if today is the birthday
     if (pageId === "birthdayPage") {
         checkBirthdayToday();
     }
@@ -80,8 +82,7 @@ function goToPage(pageId) {
 // ⬅️ Go Back Function
 function goBack() {
     if (pageHistory.length > 1) {
-        pageHistory.pop(); // Remove current page
-        const previousPage = pageHistory[pageHistory.length - 1]; // Get the last visited page
-        goToPage(previousPage);
+        pageHistory.pop();
+        goToPage(pageHistory[pageHistory.length - 1]);
     }
 }
