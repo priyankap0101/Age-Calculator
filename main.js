@@ -22,25 +22,20 @@ function calculateAge() {
 
     let years = today.getFullYear() - birthDate.getFullYear();
     let months = today.getMonth() - birthDate.getMonth();
-    let days = today.getDate() - birthDate.getDate();
 
-    if (days < 0) {
-        months--;
-        days += new Date(today.getFullYear(), today.getMonth(), 0).getDate();
-    }
     if (months < 0) {
         years--;
         months += 12;
     }
 
     document.getElementById("ageResult").innerHTML =
-        `You are <strong>${years}</strong> years, <strong>${months}</strong> months, <strong>${days}</strong> days old.`;
+        `You are <strong>${years}</strong> years and <strong>${months}</strong> months old.`;
 
     goToPage("agePage"); // ✅ Move to age display
 }
 
-// 🎈 Calculate Next Birthday Countdown
-function calculateBirthdayCountdown() {
+// 🎈 Birthday Message (Only Checks If It's Today)
+function checkBirthdayToday() {
     const birthdateInput = document.getElementById("birthdate").value;
 
     if (!birthdateInput) {
@@ -51,23 +46,14 @@ function calculateBirthdayCountdown() {
     const birthDate = new Date(birthdateInput);
     const today = new Date();
 
-    let nextBirthday = new Date(today.getFullYear(), birthDate.getMonth(), birthDate.getDate());
-
-    if (nextBirthday < today) {
-        nextBirthday.setFullYear(today.getFullYear() + 1);
-    }
-
-    const differenceInTime = nextBirthday.getTime() - today.getTime();
-    const countdownDays = Math.ceil(differenceInTime / (1000 * 60 * 60 * 24));
-
-    if (countdownDays === 0) {
-        document.getElementById("countdown").innerHTML = "🎉 Happy Birthday! 🎂";
+    // 🎂 If today is the birthday
+    if (today.getDate() === birthDate.getDate() && today.getMonth() === birthDate.getMonth()) {
+        document.getElementById("countdown").innerHTML = "🎉 Today is your birthday! Have a great day! 🎂🥳";
     } else {
-        document.getElementById("countdown").innerHTML =
-            `Your next birthday is in <strong>${countdownDays}</strong> days!`;
+        document.getElementById("countdown").innerHTML = "🎈 Your birthday is not today.";
     }
 
-    goToPage("birthdayPage"); // ✅ Move to countdown page
+    goToPage("birthdayPage");
 }
 
 // 🧭 Page Navigation with Back Support
@@ -85,9 +71,9 @@ function goToPage(pageId) {
     pages.forEach((page) => document.getElementById(page).classList.remove("active"));
     document.getElementById(pageId).classList.add("active");
 
-    // If moving to the birthday page, calculate countdown
+    // If moving to the birthday page, check if today is the birthday
     if (pageId === "birthdayPage") {
-        calculateBirthdayCountdown();
+        checkBirthdayToday();
     }
 }
 
