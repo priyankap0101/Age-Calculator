@@ -36,8 +36,29 @@ function calculateAge() {
     }
 
     // 🎉 Display result with styling
-    resultContainer.innerHTML = `🎉 You are <strong>${years}</strong> years and <strong>${months}</strong> months old.`;
-    applyResultStyles(resultContainer, "#00ff99");
+    resultContainer.innerHTML = `
+    <div style="
+        font-size: 20px;
+        font-weight: bolder;
+        color: #fff;
+        padding: 8px;
+        border-radius: 10px;
+      
+        
+        text-align: center;
+        text-transform: uppercase;
+        margin-bottom: 15px;">
+       You are <strong style="color:rgb(77, 224, 250); ">
+            ${years}
+        </strong> years and 
+        <strong style="color:rgb(232, 241, 99); ">
+            ${months}
+        </strong> months old.
+    </div>`;
+
+resultContainer.style.opacity = "1";
+resultContainer.style.transition = "all 0.3s ease-in-out";
+
 
     goToPage("agePage");
 }
