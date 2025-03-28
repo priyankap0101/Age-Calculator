@@ -48,13 +48,21 @@ body {
 
 /* 📝 Headings */
 h2 {
-    font-size: 32px;
+    font-size: 3rem;
     margin-bottom: 30px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.3);
+    font-weight: bolder;
+    letter-spacing: 2px;
+  
+    text-shadow: 4px 4px 15px rgba(0, 0, 0, 0.6), 2px 2px 10px rgba(255, 255, 255, 0.3);
+    font-family: 'Bangers', cursive; /* Use a bold and unique font */
+    color: #ffe88a; /* Bright, eye-catching color */
+    text-align: center;
+    padding: 10px 20px;
+    
+    border-radius: 10px;
+    display: inline-block;
 }
+
 
 /* ✏️ Input Fields & Buttons */
 input,
