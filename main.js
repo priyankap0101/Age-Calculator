@@ -57,10 +57,10 @@ function checkBirthdayToday() {
     const today = new Date();
 
     if (today.getDate() === birthDate.getDate() && today.getMonth() === birthDate.getMonth()) {
-        countdownMessage.innerHTML = "🎉 Today is your birthday! Have a fantastic day! 🎂🥳";
+        countdownMessage.innerHTML = "Today is your birthday! Have a fantastic day! 🎂🥳";
         applyResultStyles(countdownMessage, "#ffcc00");
     } else {
-        countdownMessage.innerHTML = "🎈 Your birthday is not today.";
+        countdownMessage.innerHTML = "Oops! Today isn't your birthday.";
         applyResultStyles(countdownMessage, "#ffffff");
     }
 
@@ -110,7 +110,7 @@ function applyResultStyles(element, color) {
     element.style.textShadow = `2px 2px 10px ${color}80`;
     element.style.padding = "10px";
     element.style.borderRadius = "10px";
-    element.style.background = "rgba(255, 255, 255, 0.1)";
+   
 }
 
 // 🧭 Page Navigation with History Support

@@ -18,11 +18,6 @@ body {
     transition: background 0.4s ease-in-out, transform 0.3s;
 }
 
-/* 🌙 Dark Mode */
-body.dark-mode {
-    background: linear-gradient(135deg, #121212, #292929);
-    color: #ddd;
-}
 
 /* 📌 Container */
 .container {
@@ -135,50 +130,8 @@ button:disabled {
     padding: 18px;
 }
 
-/* 📊 Age Display */
-#ageInTimeUnits ul {
-    list-style: none;
-    padding: 0;
-    margin: 20px auto;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    justify-content: center;
-}
 
-#ageInTimeUnits ul li {
-    font-size: 20px;
-    font-weight: 600;
-    text-align: center;
-    color: #fff;
-    padding: 18px;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 15px;
-    min-width: 120px;
-    transition: transform 0.3s ease-in-out;
-}
 
-#ageInTimeUnits ul li:hover {
-    transform: scale(1.2);
-    background: rgba(255, 255, 255, 0.3);
-}
-
-/* 🌙 Dark Mode Toggle */
-.toggle-mode {
-    position: absolute;
-    top: 25px;
-    right: 25px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    font-size: 30px;
-    color: white;
-    transition: color 0.3s ease-in-out;
-}
-
-.toggle-mode:hover {
-    color: #ffd700;
-}
 
 /* ✨ Smooth Fade-in Animation */
 @keyframes fadeIn {
