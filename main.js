@@ -107,15 +107,16 @@ function showError(element, message) {
         Object.assign(element.style, {
             color: "#fff",
             fontWeight: "bolder",
-            fontSize: "10px",
+            fontSize: "18px",
             background: "rgba(255, 0, 0, 0.95)",
             padding: "12px",
             borderRadius: "8px",
             borderLeft: "4px solid #ff0000",
             textAlign: "center",
-            maxWidth: "40%",
-            margin: "10px auto 10px"
+            maxWidth: "80%",
+            margin: "10px auto 15px" // Added margin-bottom
         });
+        
 
         // 🔁 Smooth shake effect for better feedback
         element.animate([
