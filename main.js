@@ -4,40 +4,12 @@ function calculateAge() {
     const errorMessage = document.getElementById("error-message");
     const resultContainer = document.getElementById("ageResult");
 
-   // 🛑 Validate input
-if (!birthdateInput) {
-    showError(errorMessage, "⚠️ Please enter your birthdate!");
-    resultContainer.innerHTML = "";
-
-    // ✨ Apply improved styling with custom text color
-    Object.assign(errorMessage.style, {
-        maxWidth: "80%",  
-        margin: "10px auto 15px auto", // Center align with bottom margin
-        padding: "10px 15px",
-        borderRadius: "8px",
-        background: "rgba(255, 77, 77, 0.15)", // Light red background
-        boxShadow: "0px 0px 10px rgba(255, 77, 77, 0.4)",
-        borderLeft: "4px solid #ff4d4d",
-        transition: "all 0.3s ease-in-out",
-        fontSize: "16px",
-        fontWeight: "bold",
-        textAlign: "center",
-        color: "#ffcccc", // 🔥 Soft red text for better readability
-        textShadow: "1px 1px 5px rgba(255, 77, 77, 0.8)", // Glow effect
-        transform: "scale(1.03)",
-        opacity: "1"
-    });
-
-    // 🔁 Smooth shake effect for better feedback
-    errorMessage.animate([
-        { transform: "translateX(0px)" },
-        { transform: "translateX(-4px)" },
-        { transform: "translateX(4px)" },
-        { transform: "translateX(0px)" }
-    ], { duration: 250 });
-
-    return;
-}
+    // 🛑 Validate input
+    if (!birthdateInput) {
+        showError(errorMessage, "⚠️ Please enter your birthdate!");
+        resultContainer.innerHTML = "";
+        return;
+    }
 
     const birthDate = new Date(birthdateInput);
     const today = new Date();
@@ -49,7 +21,8 @@ if (!birthdateInput) {
         return;
     }
 
-    errorMessage.innerHTML = ""; // ✅ Clear previous errors
+    // ✅ Hide error message completely after valid input
+    showError(errorMessage, "");
 
     let years = today.getFullYear() - birthDate.getFullYear();
     let months = today.getMonth() - birthDate.getMonth();
@@ -94,12 +67,39 @@ function checkBirthdayToday() {
     goToPage("birthdayPage");
 }
 
-// 📝 Display error messages
+// 📝 Display error messages with enhanced styling
 function showError(element, message) {
-    element.innerHTML = message;
-    element.style.color = "#ff4d4d";
-    element.style.fontWeight = "bold";
-    element.style.fontSize = "18px";
+    if (message) {
+        element.innerHTML = message;
+        element.style.display = "block"; // Show error when needed
+
+        // 🔥 Stylish error box
+        Object.assign(element.style, {
+            color: "#fff",
+            fontWeight: "bolder",
+            fontSize: "10px",
+            background: "rgba(255, 0, 0, 0.95)",
+            padding: "12px",
+            borderRadius: "8px",
+            borderLeft: "4px solid #ff0000",
+
+            textAlign: "center",
+            maxWidth: "40%",
+            margin: "10px auto 10px "
+        });
+
+        // 🔁 Smooth shake effect for better feedback
+        element.animate([
+            { transform: "translateX(0px)" },
+            { transform: "translateX(-5px)" },
+            { transform: "translateX(5px)" },
+            { transform: "translateX(0px)" }
+        ], { duration: 250 });
+
+    } else {
+        element.innerHTML = "";
+        element.style.display = "none"; // Hide when no error
+    }
 }
 
 // 🌟 Apply styles to results
