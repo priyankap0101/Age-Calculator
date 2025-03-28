@@ -43,22 +43,30 @@ function calculateAge() {
         color: #fff;
         padding: 8px;
         border-radius: 10px;
-      
-        
         text-align: center;
         text-transform: uppercase;
         margin-bottom: 15px;">
-       You are <strong style="color:rgb(77, 224, 250); ">
+       You are <strong style="color:rgb(77, 224, 250);">
             ${years}
         </strong> years and 
-        <strong style="color:rgb(232, 241, 99); ">
+        <strong style="color:rgb(232, 241, 99);">
             ${months}
         </strong> months old.
     </div>`;
 
-resultContainer.style.opacity = "1";
-resultContainer.style.transition = "all 0.3s ease-in-out";
+    resultContainer.style.opacity = "1";
+    resultContainer.style.transition = "all 0.3s ease-in-out";
 
+    // Add a button to copy the result
+    const copyButton = document.createElement("button");
+    copyButton.textContent = "Copy Result";
+    copyButton.style.marginTop = "10px";
+    copyButton.onclick = () => {
+        navigator.clipboard.writeText(`You are ${years} years and ${months} months old.`);
+        alert("Result copied to clipboard!");
+    };
+    
+    resultContainer.appendChild(copyButton);
 
     goToPage("agePage");
 }
@@ -83,8 +91,7 @@ function checkBirthdayToday() {
     } else {
         countdownMessage.innerHTML = "Oops! Today isn't your birthday.";
         applyResultStyles(countdownMessage, "#ffffff");
-        countdownMessage.style.marginBottom = "15px"; // Added margin-bottom
-        
+        countdownMessage.style.marginBottom = "15px"; // Moved inside else block
     }
 
     goToPage("birthdayPage");
@@ -105,10 +112,9 @@ function showError(element, message) {
             padding: "12px",
             borderRadius: "8px",
             borderLeft: "4px solid #ff0000",
-
             textAlign: "center",
             maxWidth: "40%",
-            margin: "10px auto 10px "
+            margin: "10px auto 10px"
         });
 
         // 🔁 Smooth shake effect for better feedback
@@ -133,7 +139,6 @@ function applyResultStyles(element, color) {
     element.style.textShadow = `2px 2px 10px ${color}80`;
     element.style.padding = "10px";
     element.style.borderRadius = "10px";
-   
 }
 
 // 🧭 Page Navigation with History Support

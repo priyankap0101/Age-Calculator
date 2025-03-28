@@ -112,3 +112,6 @@ button:hover {
     .container { max-width: 98%; }
     h2 { font-size: 1.8rem; }
 }
+.footer {
+  margin-top: 20px;
+}
