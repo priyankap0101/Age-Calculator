@@ -83,6 +83,8 @@ function checkBirthdayToday() {
     } else {
         countdownMessage.innerHTML = "Oops! Today isn't your birthday.";
         applyResultStyles(countdownMessage, "#ffffff");
+        countdownMessage.style.marginBottom = "15px"; // Added margin-bottom
+        
     }
 
     goToPage("birthdayPage");
