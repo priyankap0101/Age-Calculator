@@ -68,8 +68,8 @@
   /* ✏️ Inputs & Buttons */
   input,
   button {
-    width: 80%;
-    max-width: 400px;
+    width: 100%;
+    max-width: 900px;
     padding: 14px;
     border: none;
     border-radius: 12px;
@@ -89,14 +89,19 @@
   
   input:focus {
     background: rgba(255, 255, 255, 0.4);
+    border: 2px solid rgb(255, 255, 255);
     transform: scale(1.07);
-  }
+    -webkit-transform: scale(1.07);
+    -moz-transform: scale(1.07);
+    -ms-transform: scale(1.07);
+    -o-transform: scale(1.07);
+}
   
   /* 📱 Ensure Date Input is Always Visible */
   input[type='date'] {
     display: block;
-    width: 95%;
-    font-size: 1rem;
+    width: 100%;
+    font-size: 1.4rem;
     min-width: 200px;
   }
   
@@ -105,8 +110,8 @@
     background: linear-gradient(135deg, #ff7eb3, #ff2d75);
     color: white;
     cursor: pointer;
-    font-weight: bold;
-    text-transform: uppercase;
+    font-weight: bolder;
+    width: 95%;
     box-shadow: 3px 3px 10px rgba(255, 0, 85, 0.4);
     transition: all 0.3s ease-in-out;
   }
@@ -145,15 +150,9 @@
    
     input,
     button {
-      width: 95%;
+     
       padding: 12px;
       font-size: 1rem;
     }
   }
-  
-  /* Footer */
-  .footer {
-    margin-top: 20px;
-    font-size: 0.9rem;
-  }
-  
+ 
