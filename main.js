@@ -53,12 +53,48 @@ function calculateAge() {
           max-width: 90%;
           position: relative;
       ">
-          You are <strong style="color: rgb(77, 224, 250); font-size: 24px;">
-              ${years}
-          </strong> years and 
-          <strong style="color: rgb(232, 241, 99); font-size: 24px;">
-              ${months}
-          </strong> months old.
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
+.age-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    color:rgb(249, 197, 117); /* Light Orange */
+    text-shadow: 
+        -3px -3px 0 rgba(0, 0, 0, 0.7), 
+        3px -3px 0 rgba(0, 0, 0, 0.7), 
+        -3px 3px 0 rgba(0, 0, 0, 0.7), 
+        3px 3px 0 rgba(0, 0, 0, 0.7);
+    transition: transform 0.3s ease, text-shadow 0.3s ease;
+    display: inline-block;
+    padding: 5px 10px;
+}
+
+
+
+.age-container {
+    text-align: center;
+    padding: 20px;
+    font-size: 20px;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+</style>
+
+<div class="age-container">
+    You are 
+    <strong class="age-text">
+        ${years}
+    </strong> 
+    years and 
+    <strong class="age-text">
+        ${months}
+    </strong> 
+    months old.
+</div>
+
+
           
           <!-- Copy Icon -->
           <span id="copyIcon" style="
@@ -195,16 +231,7 @@ function calculateAge() {
                      
                                 </div>
                     
-                                <!-- Floating Sparkles -->
-                                <div style="
-                                    position: absolute;
-                                    top: -10px;
-                                    right: -10px;
-                                    font-size: 18px;
-                                    color: #ffeb3b;
-                                    opacity: 0.9;
-                                    animation: floatUp 1.5s infinite ease-in-out;
-                                "></div>
+                
                             </div>
                     
                             <style>
