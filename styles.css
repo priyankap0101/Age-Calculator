@@ -1,177 +1,159 @@
 /* 🎨 Global Styles */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-}
-
-body {
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  color: #fff;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-}
-
-/* 📌 Container */
-.container {
-  max-width: 500px;
-  width: 100%;
-  text-align: center;
-}
-
-/* 📄 Pages */
-.page {
-  display: none;
-  background: rgba(255, 255, 255, 0.2);
-  padding: 30px;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(12px);
-  opacity: 0;
-  transform: translateY(20px);
-  transition: 0.4s;
-}
-
-.page.active {
-  display: block;
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* 📝 Headings */
-h2 {
-  font-size: 2.4rem;
-  /*Dynamicfontsizeforbetteradaptability*/
-  margin-bottom: 20px;
-  font-weight: 900;
-  /*Extraboldforstrongemphasis*/
-  text-shadow: 4px 4px 15px rgba(0, 0, 0, 0.7);
-  font-family: 'Bangers', cursive;
-  color: #ffe88a;
-  letter-spacing: 2px;
-  text-align: center;
-  line-height: 1;
-  padding: 12px 0;
-  border-bottom: 8px solid rgba(255, 232, 138, 0.9);
-  /*Morepronouncedunderlineeffect*/
-  border-radius: 8px;
-  /*background: linear-gradient(90deg, rgba(255, 232, 138, 0.3), rgba(255, 232, 138, 0));
-    */
-  transition: all 0.3s ease-in-out;
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  -ms-border-radius: 8px;
-  -o-border-radius: 8px;
-}
-
-h2:hover {
-  transform: scale(1.08);
-  text-shadow: 6px 6px 20px rgba(0, 0, 0, 0.8);
-  color: #fff5b1; /* Subtle color change on hover */
-}
-
-/* ✏️ Inputs & Buttons */
-input,
-button {
-  width: 80%;
-  max-width: 400px; /* Prevents input from being too wide on large screens */
-  padding: 12px;
-  border: none;
-  border-radius: 12px;
-  font-size: 1rem;
-  margin-bottom: 15px;
-  text-align: center;
-  transition: 0.3s;
-}
-
-/* 🎯 Input */
-input {
-  background: rgba(255, 255, 255, 0.3);
-  color: white;
-  border: 2px solid rgba(255, 255, 255, 0.2);
-}
-
-input:focus {
-  background: rgba(255, 255, 255, 0.4);
-  transform: scale(1.05);
-}
-
-/* 📱 Responsive adjustments */
-@media (max-width: 768px) {
-  input,
-  button {
-    width: 90%;
-    padding: 14px;
-    font-size: 1rem;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
   }
-}
-
-@media (max-width: 480px) {
-  input,
-  button {
-    width: 95%;
-    padding: 12px;
-    font-size: 0.9rem;
+  
+  body {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
   }
-}
-@media (max-width: 480px) {
-  input[type='date'] {
-    display: block; /* Ensure it's visible */
-    width: 95%;
-    font-size: 1rem;
-  }
-}
-
-/* 🎨 Button */
-button {
-  width: 80%;
-  background: linear-gradient(135deg, #ff7eb3, #ff2d75);
-  color: white;
-  cursor: pointer;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-button:hover {
-  background: linear-gradient(135deg, #ff1e6d, #ff004d);
-  transform: scale(1.05);
-}
-
-/* 🔄 Navigation Buttons */
-.nav-buttons {
-  display: flex;
-  justify-content: space-evenly;
-}
-
-.nav-buttons button {
-  width: 38%;
-}
-
-/* 📱 Responsive Design */
-@media (max-width: 768px) {
+  
+  /* 📌 Container */
   .container {
-    max-width: 90%;
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+    padding: 20px;
   }
+  
+  /* 📄 Pages */
+  .page {
+    display: none;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(10px);
+    opacity: 0;
+    transform: translateY(15px);
+    transition: 0.4s ease-in-out;
+  }
+  
+  .page.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* 📝 Headings */
   h2 {
     font-size: 2rem;
+    margin-bottom: 20px;
+    font-weight: 900;
+    text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.6);
+    font-family: 'Bangers', cursive;
+    color: #ffe88a;
+    letter-spacing: 2px;
+    text-align: center;
+    line-height: 1.2;
+    padding-bottom: 10px;
+    border-bottom: 5px solid rgba(255, 232, 138, 0.8);
+    transition: transform 0.3s ease-in-out;
   }
+  
+  h2:hover {
+    transform: scale(1.05);
+    text-shadow: 5px 5px 18px rgba(0, 0, 0, 0.75);
+    color: #fff7b5;
+  }
+  
+  /* ✏️ Inputs & Buttons */
+  input,
   button {
+    width: 80%;
+    max-width: 400px;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    margin-bottom: 18px;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+  
+  /* 🎯 Input */
+  input {
+    background: rgba(255, 255, 255, 0.3);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    outline: none;
+  }
+  
+  input:focus {
+    background: rgba(255, 255, 255, 0.4);
+    transform: scale(1.07);
+  }
+  
+  /* 📱 Ensure Date Input is Always Visible */
+  input[type='date'] {
+    display: block;
+    width: 95%;
     font-size: 1rem;
+    min-width: 200px;
   }
-}
-
-@media (max-width: 480px) {
-  .container {
-    max-width: 98%;
+  
+  /* 🎨 Button */
+  button {
+    background: linear-gradient(135deg, #ff7eb3, #ff2d75);
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow: 3px 3px 10px rgba(255, 0, 85, 0.4);
+    transition: all 0.3s ease-in-out;
   }
-  h2 {
-    font-size: 1.8rem;
+  
+  button:hover {
+    background: linear-gradient(135deg, #ff1e6d, #ff004d);
+    transform: scale(1.05);
+    box-shadow: 5px 5px 15px rgba(255, 0, 85, 0.6);
   }
-}
-.footer {
-  margin-top: 20px;
-}
+  
+  /* 🔄 Navigation Buttons */
+  .nav-buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .nav-buttons button {
+    width: 45%;
+  }
+  
+  /* 📱 Responsive Design */
+  @media (max-width: 768px) {
+    .container {
+      max-width: 90%;
+    }
+  
+    button {
+      font-size: 1rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .container {
+      max-width: 95%;
+    }
+   
+    input,
+    button {
+      width: 95%;
+      padding: 12px;
+      font-size: 1rem;
+    }
+  }
+  
+  /* Footer */
+  .footer {
+    margin-top: 20px;
+    font-size: 0.9rem;
+  }
+  
