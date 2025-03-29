@@ -110,14 +110,169 @@ function calculateAge() {
   
     const isBirthday = today.getDate() === birthDate.getDate() &&
                        today.getMonth() === birthDate.getMonth();
-  
-    if (isBirthday) {
-      countdownMessage.innerHTML = "🎂 Today is your birthday! Have a fantastic day! 🥳";
-      applyResultStyles(countdownMessage, "#ffcc00");
-    } else {
-      countdownMessage.innerHTML = "Oops! Today isn't your birthday.";
-      applyResultStyles(countdownMessage, "#ffffff");
-    }
+                       if (isBirthday) {
+                        countdownMessage.innerHTML = `
+                            <div style="
+                                font-size: 20px;
+                                font-weight: bold;
+                                color: #fff;
+                                padding: 35px;
+                                border-radius: 20px;
+                                text-align: center;
+                                background: linear-gradient(135deg, #ff8800, #ff0055, #ff00ff);
+                                background-size: 400% 400%;
+                                
+                                
+                                animation: gradientShift 6s infinite alternate, pulseGlow 1.5s infinite alternate;
+                                display: inline-block;
+                                max-width: 90%;
+                                position: relative;
+                                overflow: hidden;
+                                border: 5px solid rgba(255, 255, 255, 0.3);
+                                transform: scale(1.05);
+                                transition: all 0.3s ease-in-out;
+                            " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1.05)'">
+                            
+                                🎂 <strong>Happy Birthday! 🥳</strong>
+                    
+                                <div style="
+                                    font-size: 14px;
+                                    font-weight: normal;
+                                    margin-top: 10px;
+                                    color: #ffeecc;
+                                ">
+                                    🎁 Wishing you joy, laughter, and a day filled with cake! 🎂🎊
+                                </div>
+                    
+                                <!-- Floating Confetti -->
+                                <div class="confetti-container"></div>
+                    
+                                <!-- Floating Balloons -->
+                                <span class="floating-emoji" style="
+                                    position: absolute;
+                                    top: -20px;
+                                    left: 10px;
+                                    font-size: 40px;
+                                    animation: floatUp 2s infinite ease-in-out;
+                                ">🎈</span>
+                    
+                                <span class="floating-emoji" style="
+                                    position: absolute;
+                                    top: -15px;
+                                    right: 20px;
+                                    font-size: 38px;
+                                    animation: floatDown 2s infinite ease-in-out;
+                                ">🎉</span>
+                    
+                                <!-- Sparkle Effect -->
+                                <div class="sparkle"></div>
+                            </div>
+                        `;
+                        applyResultStyles(countdownMessage, "#ffcc00");
+                    } else {
+                        countdownMessage.innerHTML = `
+                            <div style="
+                                font-size: 24px;
+                                font-weight: bold;
+                                color: #fff;
+                                padding: 25px;
+                                border-radius: 15px;
+                                text-align: center;
+                                background: rgba(255, 255, 255, 0.2);
+                                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+                                text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+                                display: inline-block;
+                                max-width: 90%;
+                                backdrop-filter: blur(12px);
+                                border: 3px solid rgba(255, 255, 255, 0.2);
+                                transition: all 0.3s ease-in-out;
+                            " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                                🌟 <strong>Make today amazing! ✨</strong>
+                    
+                                <div style="
+                                    font-size: 18px;
+                                    font-weight: normal;
+                                    margin-top: 6px;
+                                    color: #dddddd;
+                                ">
+                                    Every day is special, so enjoy every moment! 🎶🎊
+                                </div>
+                            </div>
+                        `;
+                        applyResultStyles(countdownMessage, "#ffffff");
+                    }
+                    
+                    // 🎨 Advanced Styling & Animations
+                    const style = document.createElement("style");
+                    style.innerHTML = `
+                        @keyframes gradientShift {
+                            0% { background-position: 0% 50%; }
+                            100% { background-position: 100% 50%; }
+                        }
+                        
+                        @keyframes floatUp {
+                            0% { transform: translateY(0); }
+                            50% { transform: translateY(-10px); }
+                            100% { transform: translateY(0); }
+                        }
+                        @keyframes floatDown {
+                            0% { transform: translateY(0); }
+                            50% { transform: translateY(10px); }
+                            100% { transform: translateY(0); }
+                        }
+                        @keyframes sparkleAnimation {
+                            0% { opacity: 0.3; transform: scale(1); }
+                            50% { opacity: 1; transform: scale(1.2); }
+                            100% { opacity: 0.3; transform: scale(1); }
+                        }
+                      
+                        @keyframes confettiFall {
+                            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+                            100% { transform: translateY(100px) rotate(360deg); opacity: 0; }
+                        }
+                        .confetti-container {
+                            position: absolute;
+                            top: 0;
+                            left: 50%;
+                            width: 100%;
+                            height: 100%;
+                            pointer-events: none;
+                        }
+                        .confetti {
+                            position: absolute;
+                            width: 10px;
+                            height: 10px;
+                            background: red;
+                            border-radius: 50%;
+                            opacity: 0.9;
+                            animation: confettiFall 1.5s infinite ease-in-out;
+                        }
+                    `;
+                    document.head.appendChild(style);
+                    
+                    // 🎉 Generate Falling Confetti Effect
+                    function createConfetti() {
+                        const confettiContainer = document.querySelector(".confetti-container");
+                        for (let i = 0; i < 30; i++) {
+                            let confetti = document.createElement("div");
+                            confetti.className = "confetti";
+                            confetti.style.left = `${Math.random() * 100}%`;
+                            confetti.style.animationDuration = `${1 + Math.random() * 2}s`;
+                            confetti.style.backgroundColor = getRandomColor();
+                            confettiContainer.appendChild(confetti);
+                        }
+                    }
+                    
+                    // 🎨 Random Confetti Colors
+                    function getRandomColor() {
+                        const colors = ["#ffcc00", "#ff8800", "#ff5500", "#ff0000", "#ff66cc", "#66ff99", "#00ffcc"];
+                        return colors[Math.floor(Math.random() * colors.length)];
+                    }
+                    
+                    if (isBirthday) {
+                        createConfetti();
+                    }
+                    
   
     goToPage("birthdayPage");
   }
