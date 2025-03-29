@@ -54,7 +54,12 @@
     opacity: 1;
     transform: translateY(0);
   }
-  
+  .startpage {
+    line-height: 1.2;
+    padding-bottom: 10px;
+    border-bottom: 5px solid rgba(255, 232, 138, 0.8);
+    color:#ffff05;
+  }
   /* 📝 Headings */
   h2 {
     font-size: 2rem;
@@ -62,22 +67,20 @@
     font-weight: bolder;
     text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.6);
     font-family: 'Bangers', cursive;
-    color: #ffe88a;
+    background: #000000;
+    color: #ff0808;
     letter-spacing: 2px;
     text-align: center;
-    line-height: 1.2;
-    padding-bottom: 10px;
-    border-bottom: 5px solid rgba(255, 232, 138, 0.8);
     transition: transform 0.3s ease-in-out;
-  }
+    -webkit-transition: transform 0.3s ease-in-out;
+    -moz-transition: transform 0.3s ease-in-out;
+    -ms-transition: transform 0.3s ease-in-out;
+    -o-transition: transform 0.3s ease-in-out;
+}
   
-  h2:hover {
-    transform: scale(1.05);
-    text-shadow: 5px 5px 18px rgba(0, 0, 0, 0.75);
-    color: #fff7b5;
-  }
+ 
   .claculatebtn{
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
   /* ✏️ Inputs & Buttons */
   input,
