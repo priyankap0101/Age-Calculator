@@ -44,7 +44,7 @@ function calculateAge() {
           padding: 12px;
           border-radius: 12px;
           text-align: center;
-          text-transform: uppercase;
+          
           margin-bottom: 15px;
           background: rgba(255, 255, 255, 0.2);
           backdrop-filter: blur(10px);
@@ -60,7 +60,7 @@ function calculateAge() {
     font-family: 'Poppins', sans-serif;
     font-size: 32px;
     font-weight: 700;
-    color:rgb(249, 197, 117); /* Light Orange */
+    color:rgb(255, 255, 255); /* Light Orange */
     text-shadow: 
         -3px -3px 0 rgba(0, 0, 0, 0.7), 
         3px -3px 0 rgba(0, 0, 0, 0.7), 
