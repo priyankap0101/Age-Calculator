@@ -172,32 +172,51 @@ function calculateAge() {
                     } else {
                         countdownMessage.innerHTML = `
                             <div style="
-                                font-size: 24px;
-                                font-weight: bold;
+                                font-size: 20px;
+                                font-weight: bolder;
                                 color: #fff;
                                 padding: 25px;
                                 border-radius: 15px;
                                 text-align: center;
-                                background: rgba(255, 255, 255, 0.2);
+                                background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
                                 box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
                                 text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
                                 display: inline-block;
                                 max-width: 90%;
                                 backdrop-filter: blur(12px);
-                                border: 3px solid rgba(255, 255, 255, 0.2);
-                                transition: all 0.3s ease-in-out;
-                            " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                                🌟 <strong>Make today amazing! ✨</strong>
-                    
-                                <div style="
-                                    font-size: 18px;
-                                    font-weight: normal;
-                                    margin-top: 6px;
-                                    color: #dddddd;
-                                ">
-                                    Every day is special, so enjoy every moment! 🎶🎊
+                                border: 3px solid rgba(255, 255, 255, 0.3);
+                                transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+                                animation: pulse 1.5s infinite alternate;
+                                position: relative;
+                            " onmouseover="this.style.transform='scale(1.08)'; this.style.boxShadow='0 15px 35px rgba(0, 0, 0, 0.5)';" 
+                               onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 10px 25px rgba(0, 0, 0, 0.3)';">
+                            
+                                <strong> Oops! Today isn't your birthday✨ </strong>
+                     
                                 </div>
+                    
+                                <!-- Floating Sparkles -->
+                                <div style="
+                                    position: absolute;
+                                    top: -10px;
+                                    right: -10px;
+                                    font-size: 18px;
+                                    color: #ffeb3b;
+                                    opacity: 0.9;
+                                    animation: floatUp 1.5s infinite ease-in-out;
+                                "></div>
                             </div>
+                    
+                            <style>
+                                @keyframes pulse {
+                                    0% { transform: scale(1); }
+                                    100% { transform: scale(1.02); }
+                                }
+                                @keyframes floatUp {
+                                    0% { transform: translateY(0px); opacity: 1; }
+                                    100% { transform: translateY(-10px); opacity: 0.5; }
+                                }
+                            </style>
                         `;
                         applyResultStyles(countdownMessage, "#ffffff");
                     }
