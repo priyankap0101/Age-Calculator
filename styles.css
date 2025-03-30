@@ -9,7 +9,7 @@
 body {
   background: linear-gradient(135deg, #667eea, #764ba2);
   color: #fff;
-  height: 100vh;
+  min-height: 100vh; /* Ensures full viewport height */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,8 +22,13 @@ body {
   width: 100%;
   text-align: center;
   padding: 20px;
+  min-height: 80vh; /* Ensures height fits content dynamically */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
+/* 🏷️ Page Title */
 .page-title {
   text-align: center;
   font-size: 2.5rem;
@@ -137,6 +142,8 @@ button:hover {
 @media (max-width: 768px) {
   .container {
     max-width: 90%;
+    min-height: auto;
+    padding: 10px;
   }
 
   .page-title {
@@ -148,6 +155,7 @@ button:hover {
     font-size: 1rem;
     padding: 10px;
   }
+
   .claculatebtn {
     font-size: 1rem;
   }
@@ -167,6 +175,7 @@ button:hover {
     padding: 10px;
     font-size: 0.9rem;
   }
+
   .claculatebtn {
     font-size: 0.9rem;
   }
