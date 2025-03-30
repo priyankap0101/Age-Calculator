@@ -26,7 +26,7 @@ body {
 
 .page-title {
   text-align: center;
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: bolder;
   font-family: 'Poppins', sans-serif;
   margin-bottom: 30px;
@@ -35,10 +35,6 @@ body {
   border-radius: 15px;
   background: linear-gradient(135deg, #667eea, #764ba2);
   padding: 5px 15px;
-  -webkit-border-radius: 15px;
-  -moz-border-radius: 15px;
-  -ms-border-radius: 15px;
-  -o-border-radius: 15px;
 }
 
 /* 📄 Pages */
@@ -59,30 +55,30 @@ body {
   opacity: 1;
   transform: translateY(0);
 }
+
 .startpage {
   text-align: center;
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 900;
   color: #fffd9e;
   margin-bottom: 20px;
-
   position: relative;
   padding-bottom: 5px;
 }
 
 .claculatebtn {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
+
 /* ✏️ Inputs & Buttons */
 input,
 button {
   width: 100%;
-  max-width: 900px;
-  padding: 14px;
+  padding: 12px;
   border: none;
   border-radius: 12px;
-  font-size: 1.4rem;
-  margin-bottom: 18px;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
   text-align: center;
   transition: all 0.3s ease;
 }
@@ -99,19 +95,14 @@ input:focus {
   background: rgba(255, 255, 255, 0.4);
   border: 2px solid rgb(255, 255, 255);
   transform: scale(1.07);
-  -webkit-transform: scale(1.07);
-  -moz-transform: scale(1.07);
-  -ms-transform: scale(1.07);
-  -o-transform: scale(1.07);
 }
 
 /* 📱 Ensure Date Input is Always Visible */
 input[type='date'] {
   display: block;
   width: 100%;
-  font-size: 1.4rem;
-  font-weight: bolder;
-  min-width: 200px;
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 
 /* 🎨 Button */
@@ -120,14 +111,10 @@ button {
   color: white;
   margin-top: 0.5rem;
   cursor: pointer;
-  font-weight: bolder;
-  width: 95%;
+  font-weight: bold;
+  width: 100%;
   box-shadow: 3px 3px 10px rgba(255, 0, 85, 0.4);
   transition: all 0.3s ease-in-out;
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -ms-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
 }
 
 button:hover {
@@ -143,7 +130,7 @@ button:hover {
 }
 
 .nav-buttons button {
-  width: 45%;
+  width: 48%;
 }
 
 /* 📱 Responsive Design */
@@ -152,13 +139,16 @@ button:hover {
     max-width: 90%;
   }
 
+  .page-title {
+    font-size: 2rem;
+  }
+
+  input,
   button {
     font-size: 1rem;
+    padding: 10px;
   }
   .claculatebtn {
-    font-size: 1rem;
-  }
-  input[type='date'] {
     font-size: 1rem;
   }
 }
@@ -168,15 +158,16 @@ button:hover {
     max-width: 95%;
   }
 
+  .page-title {
+    font-size: 1.8rem;
+  }
+
   input,
   button {
-    padding: 12px;
-    font-size: 1rem;
+    padding: 10px;
+    font-size: 0.9rem;
   }
   .claculatebtn {
-    font-size: 1rem;
-  }
-  input[type='date'] {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 }
