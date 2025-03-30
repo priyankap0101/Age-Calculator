@@ -58,14 +58,14 @@ function calculateAge() {
 
 .age-text {
     font-family: 'Poppins', sans-serif;
-    font-size: 32px;
+    font-size: 28px;
     font-weight: 700;
-    color:rgb(255, 255, 255); /* Light Orange */
+    color: rgb(255, 255, 255);
     text-shadow: 
-        -3px -3px 0 rgba(0, 0, 0, 0.7), 
-        3px -3px 0 rgba(0, 0, 0, 0.7), 
-        -3px 3px 0 rgba(0, 0, 0, 0.7), 
-        3px 3px 0 rgba(0, 0, 0, 0.7);
+        -1.5px -1.5px 0 rgba(0, 0, 0, 0.4), 
+        1.5px -1.5px 0 rgba(0, 0, 0, 0.4), 
+        -1.5px 1.5px 0 rgba(0, 0, 0, 0.4), 
+        1.5px 1.5px 0 rgba(0, 0, 0, 0.4);
     transition: transform 0.3s ease, text-shadow 0.3s ease;
     display: inline-block;
     padding: 5px 10px;
