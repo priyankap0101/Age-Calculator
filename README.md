@@ -1,6 +1,6 @@
-# 🧮 Age Calculator 
+# Age Calculator 
 
-Welcome to the **Age Calculator Web App**, a clean, interactive tool built using **HTML, CSS, and JavaScript**. This app allows users to calculate their exact age in **years, months, and days** by simply entering their birthdate!
+Welcome to the **Age Calculator Web App**, a clean, interactive tool built using **HTML, CSS, and JavaScript**. This app allows users to calculate their exact age in **years, months** by simply entering their birthdate!
 
 ## 🌟 Live Demo
 
