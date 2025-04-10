@@ -2,7 +2,7 @@
 
 Welcome to the **Age Calculator Web App**, a clean, interactive tool built using **HTML, CSS, and JavaScript**. This app allows users to calculate their exact age in **years, months** by simply entering their birthdate!
 
-## 🌟 Live Demo
+## Live Demo💻
 
 🔗 [View Live Project](https://calculateagenow.netlify.app/)
 
