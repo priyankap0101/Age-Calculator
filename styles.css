@@ -9,14 +9,14 @@
 body {
   background: linear-gradient(135deg, #667eea, #764ba2);
   color: #fff;
-  min-height: 100vh; /* Ensures full viewport height */
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 20px;
 }
 
-/* 📌 Main Container */
+
 .container {
   max-width: 550px;
   width: 100%;
