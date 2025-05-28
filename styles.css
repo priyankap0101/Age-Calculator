@@ -22,7 +22,7 @@ body {
   width: 100%;
   text-align: center;
   padding: 18px;
-  min-height: 80vh; /* Adjust height dynamically */
+  min-height: 70vh; /* Adjust height dynamically */
   display: flex;
   flex-direction: column;
   justify-content: center;
